@@ -7,7 +7,8 @@ function getSounds() {
     return soundsName.map(element => {
         let obj = {
             name: element,
-            audio: new Audio('audios/' + element + '.mp3')
+            audio: new Audio('audios/' + element + '.mp3'),
+            isPlaying: false
         }
         return obj;
     });
@@ -32,7 +33,13 @@ generateButtons()
 function playMusic(musicName) {
     sounds.forEach(element => {
         if (element.name === musicName) {
-            element.audio.play()
+            if (element.isPlaying) {
+                element.audio.pause()
+            } else {
+                element.audio.play()
+            }
+            element.isPlaying = !element.isPlaying
+            // setTimeout(() => {element.audio.pause()}, 1000);
         }
     });
 }
