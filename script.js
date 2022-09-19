@@ -55,7 +55,7 @@ function filtro() {
         return;
     }
     sounds.forEach(element => {
-        if (!element.getElementsByTagName("input")[0].value.includes(textSearch)) {
+        if (!element.getElementsByTagName("input")[0].value.toLowerCase().includes(textSearch.toLowerCase())) {
             element.hidden = true;
         } else {
             element.hidden = false;
