@@ -35,6 +35,7 @@ function playMusic(musicName) {
         if (element.name === musicName) {
             if (element.isPlaying) {
                 element.audio.pause()
+                element.audio.load()
             } else {
                 element.audio.play()
             }
